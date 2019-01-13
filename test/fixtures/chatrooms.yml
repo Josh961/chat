@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  chat_room_name: MyString
+  date_created: 2018-10-19 14:52:42
+ # files_uploaded: 
+ # number_of_stars: 
+
+two:
+  chat_room_name: MyString
+  date_created: 2018-10-19 14:52:42
+ # files_uploaded: 
+ # number_of_stars: 

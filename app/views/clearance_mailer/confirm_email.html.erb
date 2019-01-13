@@ -1,0 +1,8 @@
+<p><%= t(".opening") %></p>
+
+<p>
+  <%= link_to t(".link_text", default: "Confirm my email"),
+    confirm_email_url(@user, token: @user.email_confirmation_token.html_safe) %>
+</p>
+
+<p><%= raw t(".closing") %></p>

@@ -1,0 +1,60 @@
+<div class="home-wrapper">
+  <div class="container">
+
+    <!-- Left Radio -->
+    <div class="side">
+      <ul>
+        <li>
+          <%= button_to 'Home', home_path, method: :get, class: 'side-button selected' %>
+        </li>
+        <li>
+          <%= button_to 'Starred', starred_path, method: :get, class: 'side-button' %>
+        </li>
+        <li>
+          <%= button_to 'Profile', profile_path, method: :get, class: 'side-button' %>
+        </li>
+      </ul>
+      <hr>
+      <button id="add-room" class="submit-button">Add room</button>
+      <%= button_to 'Sign out', sign_out_path, method: :delete, class: 'submit-button' %>
+    </div>
+
+    <!-- Modals -->
+    <div id="add-room-modal" class="modal">
+      <div class="modal-content">
+        <span id="close-modal">&times;</span>
+        <h2>New Chat Room</h2>
+        <%= render partial: "new" %>
+      </div>
+    </div>
+
+    <!-- Home Panel -->
+    <div class="main">
+      <div class="main-header">
+        <h1>Hi, <%= current_user.nickname %></h1>
+      </div>
+
+      <div class="rooms">
+        <% @rooms.each do |room| %>
+          <div class="room-item">
+            <div class="room-card">
+              <h4><%= room.chat_room_name %></h4>
+              <p>📅: <%= room.date_created %></p>
+              <p>⭐: <%= room.number_of_stars %></p>
+              <%= link_to content_tag(:span, ""), chat_room_path_url(room), data: { turbolinks: false } %>
+            </div>
+            <div class="star">
+              <% if room.users.find_by(id: current_user.id).nil? %>
+                <%= button_to 'user/set_starred_chatrooms', params: {:controller => "user", :action => "set_starred_chatrooms", :room => room, :user => current_user} do %>
+                <% end %>
+              <% else %>
+                <%= button_to 'user/set_starred_chatrooms', params: {:controller => "user", :action => "set_starred_chatrooms", :room => room, :user => current_user}, class: 'filled' do %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

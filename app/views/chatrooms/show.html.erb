@@ -1,0 +1,19 @@
+<div class="chatroom-wrapper">
+  <div class="chatroom-header">
+    <h1 id="header"><%= @chatroom.chat_room_name %></h1>
+  </div>
+
+  <div id="all-messages">
+    <% if @chatroom.messages %>
+      <%= render @chatroom.messages %>
+    <% end %>
+  </div>
+
+  <div class="form-wrapper">
+    <%= form_with url: @chatroom, html: {id: 'new-message'} do |form| %>
+      <%= form.text_field :contents, type: 'contents', placeholder: "Message", maxlength: 100, class: 'text-field', id: 'contents', autocomplete: 'off' %>
+      <%= form.submit 'Send', id: 'submit-button', class: 'submit-message' %>
+      <%= form.file_field :attachment, id: 'message-attachment' %>
+    <% end %>
+  </div>
+</div>

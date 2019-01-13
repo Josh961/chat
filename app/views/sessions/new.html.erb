@@ -1,0 +1,30 @@
+<div class="authentication-wrapper">
+  <div class="container">
+
+    <div class="logo">
+      <img src="/images/chatbot.png" alt="Chat Bot">
+    </div>
+
+    <div class="authentication-form-wrapper">
+      <h2>Member Login</h2>
+
+      <%= form_for :session, url: session_path do |form| %>
+        <%= form.text_field :email, type: 'email', placeholder: "Email", class: 'input-field'%>
+
+        <%= form.password_field :password, placeholder: "Password", class: 'input-field' %>
+        
+        <%= form.submit 'Login', :class => 'submit-button' %>
+        
+        <div class="forgot">
+          <span>Forgot</span> <%= link_to t(".password?"), new_password_path %>
+        </div>
+
+        <div class="create-account">
+          <% if Clearance.configuration.allow_sign_up? %>
+            <span>Create an Account?</span> <%= link_to t(".sign_up"), sign_up_path %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

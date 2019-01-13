@@ -1,0 +1,59 @@
+<div class="home-wrapper">
+  <div class="container">
+    
+    <!-- Left Radio -->
+    <div class="side">
+      <ul>
+        <li>
+          <%= button_to 'Home', home_path, method: :get, class: 'side-button' %>
+        </li>
+        <li>
+          <%= button_to 'Starred', starred_path, method: :get, class: 'side-button' %>
+        </li>
+        <li>
+          <%= button_to 'Profile', profile_path, method: :get, class: 'side-button selected' %>
+        </li>
+      </ul>
+      <hr>
+      <button id="add-room" class="submit-button">Add room</button>
+      <%= button_to 'Sign out', sign_out_path, method: :delete, class: 'submit-button' %>
+    </div>
+
+    <!-- Modals -->
+    <div id="add-room-modal" class="modal">
+      <div class="modal-content">
+        <span id="close-modal">&times;</span>
+        <h2>New Chat Room</h2>
+        <%= render partial: "chatrooms/new" %>
+      </div>
+    </div>
+
+    <!-- Home Panel -->
+    <div class="main">
+      <div class="main-header">
+        <h1>Edit Profile</h1>
+      </div>
+
+      <div class="profile-form-wrapper">
+        <%= form_for @user, url: users_path do |form| %>
+          <div class="form-field">
+            <label for="user_nickname">Email:</label>
+            <%= form.text_field :email, class: 'input-field', readonly: true %>
+          </div>
+
+          <div class="form-field">
+            <label for="user_nickname">Nickname:</label>
+            <%= form.text_field :nickname, class: 'input-field' %>
+          </div>
+
+          <div class="form-field">
+            <label for="user_password">Password:</label>          
+            <%= form.password_field :password, minlength: 6, maxlength: 14, class: 'input-field' %>
+          </div>
+
+          <%= form.submit 'Update', class: 'submit-button' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

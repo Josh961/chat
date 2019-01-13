@@ -1,0 +1,19 @@
+<div class="authentication-wrapper">
+  <div class="container-small">
+    <div class="authentication-form-wrapper">
+      <h2>Reset Password</h2>
+
+      <p>Enter your email address for a link to reset your password.</p>
+
+      <%= form_for :password, url: passwords_path do |form| %>
+        <%= form.text_field :email, type: 'email', placeholder: "Email", class: 'input-field', required: true %>
+
+        <%= form.submit 'Reset Password', :class => 'submit-button' %>
+      <% end %>
+
+      <div class="other-links">
+        <%= link_to t(".return"), sign_in_path %>
+      </div>
+    </div>
+  </div>
+</div>

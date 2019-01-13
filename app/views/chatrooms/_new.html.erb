@@ -1,0 +1,5 @@
+<%= form_for @chatroom do |room| %>
+  <%= room.text_field :chat_room_name, placeholder: "Room Name", class: 'input-field', required: true, maxlength: 18 %>
+
+  <%= room.submit 'Submit', :class => 'submit-button' %>
+<% end %>

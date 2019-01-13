@@ -1,0 +1,24 @@
+<div class="authentication-wrapper">
+  <div class="container-small">
+
+    <div class="authentication-form-wrapper">
+      <h2>Set Nickname</h2>
+
+      <%= form_for current_user, url: users_path do |form| %>
+        <%= form.text_field :nickname, type: 'string', placeholder: "Nickname", class: 'input-field'%>
+
+        <%= form.submit 'Submit', :class => 'submit-button' %>
+
+        <div id="flash">
+          <% flash.each do |key, value| %>
+            <div class="flash <%= key %>"><%= value %></div>
+          <% end %>
+        </div>
+
+        <div class="other-links">
+          <%= link_to t(".return"), sign_in_path %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

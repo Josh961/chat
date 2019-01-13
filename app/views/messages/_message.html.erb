@@ -1,0 +1,9 @@
+<div class = "messages">
+  <strong><%= message.user.nickname %></strong> - <%= message.date_sent.localtime.strftime("%b %d %I:%M %p") %>
+  <br><%= message.contents %>
+  <% if message.attachment_data? %>
+    <br>
+    <%= link_to "View #{message.attachment.original_filename}",
+                message.attachment.url, target: '_blank' %>
+  <% end %>
+</div>
