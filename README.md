@@ -1,24 +1,11 @@
-# README
+# ch@
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A chat room web application built with the team below:
 
-Things you may want to cover:
+Full stack - [Josh961](https://github.com/Josh961)
 
-* Ruby version 2.5.1
+Backend - [ldtaylor](https://github.com/ldtaylor)
 
-* System dependencies
+Backend - [erikdash](https://github.com/erikdash)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Agile, UML Diagrams, SRS documents, and other best practices were employed within the duration of the project. It was a great way to practice how things are done within the industry. By the end of the project, we had gotten much more efficient with the entire process, along with a familiarity with rails.
